@@ -1,0 +1,55 @@
+<html>
+<style>
+html, body {
+background-image: url('672.png');
+background-size: 100%;
+background-repeat: no-repeat;
+background-color: #24272b;
+color: white;
+text-align: center;
+margin: 0px;
+overflow: hidden;
+}
+</style>
+<script>
+if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
+</script>
+<body onload="go()">
+<script>
+function print(){}
+</script>
+<script src="exploit.js"></script>
+<script src="helpers.js"></script>
+<script src="malloc.js"></script>
+<script src="rop.js"></script>
+<script src="syscalls.js"></script>
+<script src="syscalls2.js"></script>
+<script src="jb.js"></script>
+<script>
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', path, false);
+    xhr.send('');
+    eval.call(window, xhr.responseText);
+}
+
+(function()
+{
+    loadScript('mira.js')
+
+    loadScript('goldhen22.js')
+
+})();
+</script>
+<script src="netcat.js"></script>
+<script>
+    if(main_ret == 0 || main_ret == 179)
+    {
+        alert("Jailbreak Success !\n PRESS OK AND WAIT FOR THE MEMORY ERROR !!!!!");
+    }
+    else
+        alert("Jailbreak failed! Reboot your PS4 and try again.");
+</script>
+</body>
+</html>
